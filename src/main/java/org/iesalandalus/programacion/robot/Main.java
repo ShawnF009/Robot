@@ -14,9 +14,12 @@ public class Main {
         do {
             Consola.mostrarMenuPrincipal();
             opcion = Consola.elegirOpcion();
-            ejecutarOpcion(opcion);
+            try {
+                ejecutarOpcion(opcion);
+            } catch (NullPointerException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
         } while (opcion != 6);
-        Consola.despedirse();
     }
     public static void ejecutarOpcion(int opcion) {
         switch (opcion) {
@@ -27,7 +30,9 @@ public class Main {
             case 5 -> ejecutarComando();
             case 6 -> Consola.despedirse();
         }
-        Consola.mostrarRobot(controladorRobot);
+        if (opcion != 6){
+            Consola.mostrarRobot(controladorRobot);
+        }
     }
 
     public static void controlarRobotDefecto() {
@@ -44,8 +49,12 @@ public class Main {
     }
 
     public static void controlarRobotZonaOrientacionCoordenada() {
-        Consola.mostrarMenuOrientacion();
-        controladorRobot = new ControladorRobot(new Robot(Consola.elegirZona(), Consola.elegirOrientacion(),Consola.elegirCoordenada()));
+        try{
+            controladorRobot = new ControladorRobot(new Robot(Consola.elegirZona(), Consola.elegirOrientacion(),Consola.elegirCoordenada()));
+        } catch (IllegalArgumentException e){
+            System.out.println("Error: " + e.getMessage());
+        }
+
     }
 
     public static void ejecutarComando() {

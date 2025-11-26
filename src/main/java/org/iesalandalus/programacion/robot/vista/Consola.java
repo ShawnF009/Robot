@@ -54,6 +54,7 @@ public class Consola {
         System.out.println("8. Noroeste");
     }
     public static Orientacion elegirOrientacion(){
+        mostrarMenuOrientacion();
         Orientacion orientacion = null;
         int opcion;
         do {
