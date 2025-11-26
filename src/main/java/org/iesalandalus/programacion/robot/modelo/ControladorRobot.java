@@ -7,9 +7,10 @@ public class ControladorRobot {
 
     public ControladorRobot (Robot robot){
         Objects.requireNonNull(robot,"El robot no puede ser nulo.");
+        this.robot = new Robot(robot);
     }
     public Robot getRobot(){
-        return new Robot();
+        return new Robot(robot);
     }
     public void ejecutar(char comando) {
         switch (comando) {
