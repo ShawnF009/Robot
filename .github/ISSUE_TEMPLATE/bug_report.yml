@@ -1,65 +1,65 @@
-nombre: Informe de error
-Descripción: Presentar un informe de error.
-Título: "[Error]: "
-etiquetas: ["error", "triaje"]
-proyectos: ["octo-org/1", "octo-org/44"]
-cesionarios:
-  - octogato
-tipo: error
-cuerpo:
-  - tipo: markdown
-    atributos:
-      valor: |
-        ¡Gracias por tomarse el tiempo para completar este informe de errores!
-  - tipo: entrada
-    id: contacto
-    atributos:
-      etiqueta: Datos de contacto
-      Descripción:¿Cómo podemos ponernos en contacto con usted si necesitamos más información?
-      marcador de posición: p. ej. email@example.com
-    validaciones:
-      requerido: falso
-  - tipo: área de texto
-    id: qué pasó
-    atributos:
-      etiqueta:¿Que pasó?
-      Descripción:Cuéntanos también ¿Qué esperabas que pasara?
-      marcador de posición: ¡Cuéntanos qué ves!
-      valor: "¡Ocurrió un error!"
-    validaciones:
-      requerido: verdadero
-  - tipo: desplegable
-    id: versión
-    atributos:
-      etiqueta: Versión
-      Descripción:¿Qué versión de nuestro software está utilizando?
-      opciones:
-        - 1.0.2 (predeterminado)
+name: Bug Report
+description: File a bug report.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
+assignees:
+  - octocat
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
         - 1.0.3 (Edge)
-      predeterminado: 0
-    validaciones:
-      requerido: verdadero
-  - tipo: desplegable
-    id: navegadores
-    atributos:
-      Etiqueta: ¿En qué navegadores ves el problema?
-      múltiple: verdadero
-      opciones:
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
         - Firefox
-        - Cromo
+        - Chrome
         - Safari
         - Microsoft Edge
-  - tipo: área de texto
-    id: registros
-    atributos:
-      etiqueta: Salida de registro relevante
-      Descripción: Copie y pegue cualquier salida de registro relevante. Se formateará automáticamente en el código, así que no necesita comillas invertidas.
-      renderizar: shell
-  - tipo: casillas de verificación
-    id: términos
-    atributos:
-      etiqueta: Código de conducta
-      Descripción: Al enviar este problema, usted acepta seguir nuestro [Código de conducta](https://example.com).
-      opciones:
-        - etiqueta: Acepto seguir el Código de conducta de este proyecto
-          requerido: verdadero
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
